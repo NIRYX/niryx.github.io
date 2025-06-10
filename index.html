@@ -25,46 +25,34 @@
             width: 80px;
             height: auto;
         }
-        .menu-toggle {
+        .menu-icon {
             position: absolute;
             top: 20px;
             right: 20px;
             font-size: 24px;
             cursor: pointer;
-            display: none;
-        }
-        .menu {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 10px 0;
-        }
-        .menu a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.1em;
-        }
-        .menu a:hover {
-            color: #ccc;
-        }
-        .nav-menu {
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            background-color: #1a1a1a;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             z-index: 1000;
         }
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #1a1a1a;
+            padding-top: 60px;
+            transition: right 0.3s ease-in-out;
+            z-index: 999;
+        }
         .nav-menu.active {
-            display: block;
+            right: 0;
         }
         .nav-menu a {
             display: block;
-            padding: 10px 20px;
             color: #fff;
+            padding: 15px;
             text-decoration: none;
+            font-size: 18px;
         }
         .nav-menu a:hover {
             background-color: #333;
@@ -129,14 +117,24 @@
         .follow-us .social-button {
             display: inline-block;
             margin: 10px;
-            padding: 10px;
+            padding: 10px 20px;
             background-color: #fff;
             color: #000;
             text-decoration: none;
             border-radius: 5px;
+            font-size: 16px;
         }
         .follow-us .social-button:hover {
             background-color: #ccc;
+        }
+        .follow-us .social-icon {
+            font-size: 24px;
+            margin: 0 10px;
+            color: #fff;
+            transition: color 0.3s;
+        }
+        .follow-us .social-icon:hover {
+            color: #ccc;
         }
         footer {
             padding: 20px;
@@ -150,18 +148,9 @@
             width: 80px;
             height: auto;
         }
-        @media (max-width: 768px) {
-            .menu {
-                display: none;
-            }
-            .menu-toggle {
-                display: block;
-            }
+        @media (max-width: 600px) {
             .nav-menu {
-                display: none;
-            }
-            .nav-menu.active {
-                display: block;
+                width: 200px;
             }
         }
     </style>
@@ -169,20 +158,16 @@
 <body>
     <header>
         <img src="img/logo-niryx.png" alt="NIRYX logo" class="logo-top">
-        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
-        <div class="menu">
-            <a href="index.html">Home</a>
-            <a href="projects.html">Projects</a>
-            <a href="contact.html">Contact</a>
-        </div>
-        <div class="nav-menu" id="navMenu">
-            <a href="index.html">Home</a>
-            <a href="projects.html">Projects</a>
-            <a href="contact.html">Contact</a>
-        </div>
+        <i class="fas fa-bars menu-icon" onclick="toggleMenu()"></i>
         <h1>Welcome to NIRYX</h1>
         <p class="description">Argentina-based game developer who creates original worlds.</p>
     </header>
+
+    <div class="nav-menu" id="navMenu">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
 
     <section class="games">
         <div class="game">
@@ -213,9 +198,9 @@
 
     <section class="follow-us">
         <h2>Follow us on</h2>
-        <a href="https://x.com/NiryxWorks" target="_blank" class="social-button"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://instagram.com/niryxworks" target="_blank" class="social-button"><i class="fab fa-instagram"></i></a>
-        <a href="https://youtube.com/@NiryxWorks" target="_blank" class="social-button"><i class="fab fa-youtube"></i></a>
+        <a href="https://x.com/NiryxWorks" target="_blank" class="social-button"><i class="fab fa-x-twitter social-icon"></i> X</a>
+        <a href="https://instagram.com/niryxworks" target="_blank" class="social-button"><i class="fab fa-instagram social-icon"></i> Instagram</a>
+        <a href="https://youtube.com/@NiryxWorks" target="_blank" class="social-button"><i class="fab fa-youtube social-icon"></i> YouTube</a>
         <p>Links to the NIRYX accounts</p>
     </section>
 
