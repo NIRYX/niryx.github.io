@@ -15,6 +15,14 @@
         }
         header {
             padding: 20px;
+            position: relative;
+        }
+        .logo-top {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 80px;
+            height: auto;
         }
         h1 {
             margin: 0;
@@ -35,10 +43,6 @@
             padding: 10px;
             width: 200px;
         }
-        .game img {
-            max-width: 100%;
-            height: auto;
-        }
         .game a {
             color: #fff;
             text-decoration: none;
@@ -49,37 +53,51 @@
         .twitter p {
             margin: 10px 0;
         }
-        .follow-us img {
-            width: 30px;
-            margin: 0 10px;
+        .follow-us .social-button {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .follow-us .social-button:hover {
+            background-color: #ccc;
         }
         footer {
             padding: 20px;
+            position: relative;
             font-size: 0.8em;
+        }
+        .logo-bottom {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 80px;
+            height: auto;
         }
     </style>
 </head>
 <body>
     <header>
+        <img src="images/logo-niryx.png" alt="NIRYX logo" class="logo-top">
         <h1>NIRYX</h1>
         <p class="description">Argentina-based game developer who creates original worlds.</p>
     </header>
 
     <section class="games">
         <div class="game">
-            <img src="img/logo-nekophoria.png" alt="nekophoria logo">
             <h2>Nekophoria: Ice Cream!</h2>
             <p>A Visual Novel about an ice cream shop run by Neko-Girls and the Player.</p>
             <a href="#">see game</a>
         </div>
         <div class="game">
-            <img src="img/logo-nanase.png" alt="nanase-san logo">
             <h2>Nanase-San Can't Be Honest</h2>
             <p>A mysterious girl who doesn't talk to anyone, Except you?</p>
             <a href="#">see game</a>
         </div>
         <div class="game">
-            <img src="img/logo-secret.png" alt="love and literature logo">
             <h2>Love and Literature</h2>
             <p>NIRYX has not given any information yet.</p>
             <a href="#">see game</a>
@@ -94,17 +112,18 @@
 
     <section class="follow-us">
         <h2>Follow us on</h2>
-        <img src="img/x-logo.png" alt="X logo">
-        <img src="img/instagram-logo.png" alt="Instagram logo">
-        <img src="img/youtube-logo.png" alt="YouTube logo">
+        <a href="https://x.com/NIRYX" target="_blank" class="social-button">X</a>
+        <a href="https://instagram.com/NIRYX" target="_blank" class="social-button">Instagram</a>
+        <a href="https://youtube.com/@NIRYX" target="_blank" class="social-button">YouTube</a>
         <p>Links to the NIRYX accounts</p>
     </section>
 
     <footer>
-        <p>For more information, please contact: niryx.inc@gmail.com or matipohq@gmail.com</p>
+        <p>For more information, please contact: niryx.inc@gmail.com or matiposehq@gmail.com</p>
         <p>Argentina - Bs.As. Pvc.</p>
         <p>Copyright NIRYX 2025. All Rights Reserved.</p>
         <p>Redistribution of our games/products is prohibited.</p>
+        <img src="images/logo-niryx.png" alt="NIRYX logo" class="logo-bottom">
     </footer>
 </body>
 </html>
