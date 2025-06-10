@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.5;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.8rem;
+  border: 2px solid white;
+  padding: 0.3em 0.6em;
+}
+
+.menu-icon {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.hero {
+  text-align: center;
+  margin: 2rem;
+}
+
+.hero h1 {
+  font-size: 2rem;
+}
+
+.games {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+
+.game-card {
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 1rem;
+  width: 250px;
+}
+
+.logo-placeholder {
+  background: #ccc;
+  height: 150px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.game-card a {
+  display: inline-block;
+  margin-top: 1rem;
+  background: black;
+  color: white;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.social, .follow {
+  text-align: center;
+  padding: 2rem;
+}
+
+footer {
+  background: #111;
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
