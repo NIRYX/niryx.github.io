@@ -37,15 +37,43 @@
             justify-content: center;
             gap: 20px;
             padding: 20px;
+            flex-wrap: wrap;
         }
         .game {
-            border: 1px solid #fff;
-            padding: 10px;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 15px;
             width: 200px;
+            transition: transform 0.2s;
+        }
+        .game:hover {
+            transform: translateY(-5px);
+        }
+        .game img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .game h2 {
+            margin: 10px 0;
+            font-size: 1.5em;
+        }
+        .game p {
+            font-size: 0.9em;
+            color: #ccc;
+            margin: 10px 0;
         }
         .game a {
             color: #fff;
             text-decoration: none;
+            background-color: #333;
+            padding: 8px 15px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .game a:hover {
+            background-color: #555;
         }
         .twitter, .follow-us {
             padding: 20px;
@@ -88,19 +116,19 @@
 
     <section class="games">
         <div class="game">
-            <img src="img/logo-nekophoria.png" alt="nekophoria logo">
+            <img src="img/logo-niryx.png" alt="Nekophoria: Ice Cream!">
             <h2>Nekophoria: Ice Cream!</h2>
             <p>A Visual Novel about an ice cream shop run by Neko-Girls and the Player.</p>
             <a href="#">see game</a>
         </div>
         <div class="game">
-            <img src="img/logo-nanase.png" alt="nanase logo">            
+            <img src="img/logo-niryx.png" alt="Nanase-San Can't Be Honest">
             <h2>Nanase-San Can't Be Honest</h2>
             <p>A mysterious girl who doesn't talk to anyone, Except you?</p>
             <a href="#">see game</a>
         </div>
         <div class="game">
-            <img src="img/logo-secret.png" alt="lal logo">            
+            <img src="img/logo-niryx.png" alt="Love and Literature">
             <h2>Love and Literature</h2>
             <p>NIRYX has not given any information yet.</p>
             <a href="#">see game</a>
@@ -110,7 +138,7 @@
     <section class="twitter">
         <h2>X (Twitter)</h2>
         <p>@NIRYX Posts (3 last posts total)</p>
-        <p>Links to the NIRYX accounts</p>
+        <p>Links to NIRYX accounts</p>
     </section>
 
     <section class="follow-us">
