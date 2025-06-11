@@ -141,6 +141,20 @@
             position: relative;
             font-size: 0.8em;
         }
+        footer {
+            border-top: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 20px;
+            font-size: 0.8em;
+            flex-wrap: wrap;
+        }
+        footer .left,
+        footer .center {
+            flex: 1;
+        }
+
         .logo-bottom {
             position: absolute;
             bottom: 20px;
@@ -205,11 +219,15 @@
     </section>
 
     <footer>
-        <p>For more information, please contact: niryx.inc@gmail.com or matiposehq@gmail.com</p>
-        <p>Argentina - Bs.As. Pvc.</p>
-        
-        <p>Copyright NIRYX 2025. All Rights Reserved.</p>
-        <p>Redistribution of our games/products is prohibited.</p>
+        <div class="left">
+            <p>For more information: niryx.inc@gmail.com / matiposehq@gmail.com</p>
+            <p>Argentina - Bs.As. Pvc.</p>
+            <p>© NIRYX 2025. All Rights Reserved.</p>
+            <p>Redistribution of our games/products is prohibited.</p>
+        </div>
+        <div class="center" style="text-align: center;">
+            <p>Powered by Cognospheris 2025.</p>
+        </div>
         <img src="img/logo-niryx.png" alt="NIRYX logo" class="logo-bottom">
     </footer>
 
