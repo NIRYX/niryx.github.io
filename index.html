@@ -1,241 +1,146 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NIRYX</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body {
-            background-color: #000;
-            color: #fff;
             font-family: Arial, sans-serif;
-            text-align: center;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         header {
-            padding: 60px 20px 20px 20px;
-            position: relative;
+            text-align: center;
+            padding: 50px 20px; /* Increased padding to move banner text lower */
+            background-color: #f4f4f4;
         }
-        .logo-top {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 80px;
-            height: auto;
-        }
-        .menu-icon {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 1000;
-        }
-        .nav-menu {
-            position: fixed;
-            top: 0;
-            right: -250px;
-            width: 250px;
-            height: 100%;
-            background-color: #1a1a1a;
-            padding-top: 60px;
-            transition: right 0.3s ease-in-out;
-            z-index: 999;
-        }
-        .nav-menu.active {
-            right: 0;
-        }
-        .nav-menu a {
-            display: block;
-            color: #fff;
-            padding: 15px;
-            text-decoration: none;
-            font-size: 18px;
-        }
-        .nav-menu a:hover {
+        nav {
             background-color: #333;
+            padding: 10px 0;
+            text-align: center;
         }
-        h1 {
-            margin: 0;
-            font-size: 2em;
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
         }
-        .description {
-            font-size: 1.2em;
-            margin-bottom: 20px;
+        nav a:hover {
+            text-decoration: underline;
         }
-        .games {
+        .projects {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            padding: 20px;
             flex-wrap: wrap;
+            padding: 20px;
+            gap: 20px;
         }
-        .game {
-            background-color: #1a1a1a;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            padding: 15px;
+        .project-card {
             width: 200px;
-            transition: transform 0.2s;
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
         }
-        .game:hover {
-            transform: translateY(-5px);
-        }
-        .game img {
-            max-width: 100%;
+        .project-card img {
+            width: 100%;
             height: auto;
-            border-radius: 5px;
         }
-        .game h2 {
-            margin: 10px 0;
-            font-size: 1.5em;
-        }
-        .game p {
-            font-size: 0.9em;
-            color: #ccc;
-            margin: 10px 0;
-        }
-        .game a {
-            color: #fff;
-            text-decoration: none;
-            background-color: #333;
-            padding: 8px 15px;
-            border-radius: 5px;
-            display: inline-block;
-        }
-        .game a:hover {
-            background-color: #555;
-        }
-        .twitter, .follow-us {
+        .social {
+            text-align: center;
             padding: 20px;
         }
-        .twitter p {
-            margin: 10px 0;
-        }
-        .follow-us .social-button {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            background-color: #fff;
-            color: #000;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        .follow-us .social-button:hover {
-            background-color: #ccc;
-        }
-        .follow-us .social-icon {
-            font-size: 24px;
+        .social img {
+            width: 30px;
             margin: 0 10px;
-            color: #000;
-            transition: color 0.3s;
-        }
-        .follow-us .social-icon:hover {
-            color: #ccc;
         }
         footer {
+            background-color: #333;
+            color: white;
             padding: 20px;
-            position: relative;
-            font-size: 0.8em;
-        }
-        footer {
-            border-top: 1px solid #333;
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
-            padding: 20px;
-            font-size: 0.8em;
+            align-items: center;
             flex-wrap: wrap;
+            margin-top: auto;
         }
-        footer .left,
-        footer .center {
+        .footer-left {
+            text-align: left;
             flex: 1;
         }
-
-        .logo-bottom {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            width: 80px;
-            height: auto;
+        .footer-center {
+            text-align: center;
+            flex: 1;
         }
-        @media (max-width: 600px) {
-            .nav-menu {
-                width: 200px;
-            }
+        .footer-right {
+            text-align: right;
+            flex: 1;
+        }
+        .footer-right img {
+            width: 50px;
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="img/logo-niryx.png" alt="NIRYX logo" class="logo-top">
-        <i class="fas fa-bars menu-icon" onclick="toggleMenu()"></i>
         <h1>Welcome to NIRYX</h1>
-        <p class="description">Argentina-based game developer who creates original worlds.</p>
+        <p>Argentina-based game developer who creates original worlds.</p>
     </header>
 
-    <div class="nav-menu" id="navMenu">
-        <a href="#home">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+    </nav>
 
-    <section class="games">
-        <div class="game">
-            <img src="img/logo-nekophoria.png" alt="Nekophoria: Ice Cream!">
-            <h2>Nekophoria: Ice Cream!</h2>
+    <section class="projects">
+        <div class="project-card">
+            <img src="nekophoria.jpg" alt="Nekophoria: Ice Cream!">
+            <h3>Nekophoria: Ice Cream!</h3>
             <p>A Visual Novel about an ice cream shop run by Neko-Girls and the Player.</p>
             <a href="#">see game</a>
         </div>
-        <div class="game">
-            <img src="img/logo-nanase.png" alt="Nanase-San Can't Be Honest">
-            <h2>Nanase-San Can't Be Honest</h2>
+        <div class="project-card">
+            <img src="nanase.jpg" alt="Nanase-San Can't Be Honest">
+            <h3>Nanase-San Can't Be Honest</h3>
             <p>A mysterious girl who doesn't talk to anyone, Except you?</p>
             <a href="#">see game</a>
         </div>
-        <div class="game">
-            <img src="img/logo-secret.png" alt="Love and Literature">
-            <h2>Love and Literature</h2>
+        <div class="project-card">
+            <img src="love_literature.jpg" alt="Love and Literature">
+            <h3>Love and Literature</h3>
             <p>NIRYX has not given any information yet.</p>
             <a href="#">see game</a>
         </div>
     </section>
 
-    <section class="twitter">
-        <h2>X (Twitter)</h2>
+    <section class="social">
+        <h3>X (Twitter)</h3>
         <p>@NIRYX Posts (3 last posts total)</p>
         <p>Links to NIRYX accounts</p>
-    </section>
-
-    <section class="follow-us">
-        <h2>Follow us on</h2>
-        <a href="https://x.com/NiryxWorks" target="_blank" class="social-button"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://instagram.com/niryxworks" target="_blank" class="social-button"><i class="fab fa-instagram"></i></a>
-        <a href="https://youtube.com/@NiryxWorks" target="_blank" class="social-button"><i class="fab fa-youtube"></i></a>
+        <h3>Follow us on</h3>
+        <a href="#"><img src="twitter_icon.png" alt="Twitter"></a>
+        <a href="#"><img src="facebook_icon.png" alt="Facebook"></a>
+        <a href="#"><img src="instagram_icon.png" alt="Instagram"></a>
         <p>Links to the NIRYX accounts</p>
     </section>
 
     <footer>
-        <div class="left">
-            <p>For more information: niryx.inc@gmail.com / matiposehq@gmail.com</p>
+        <div class="footer-left">
+            <p>For more information: <a href="mailto:[email protected]">[email protected]</a> / <a href="mailto:[email protected]">[email protected]</a></p>
             <p>Argentina - Bs.As. Pvc.</p>
             <p>© NIRYX 2025. All Rights Reserved.</p>
             <p>Redistribution of our games/products is prohibited.</p>
         </div>
-        <div class="center" style="text-align: center;">
+        <div class="footer-center">
             <p>Powered by Cognospheris 2025.</p>
         </div>
-        <img src="img/logo-niryx.png" alt="NIRYX logo" class="logo-bottom">
+        <div class="footer-right">
+            <img src="logo.png" alt="NIRYX Logo">
+        </div>
     </footer>
-
-    <script>
-        function toggleMenu() {
-            const navMenu = document.getElementById('navMenu');
-            navMenu.classList.toggle('active');
-        }
-    </script>
 </body>
 </html>
