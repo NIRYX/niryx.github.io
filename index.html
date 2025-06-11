@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NIRYX</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding:0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            background-color: #000;
-            color: #fff;
         }
         header {
             text-align: center;
-            padding: 50px 20px; /* Lowered banner text */
-            background-color: #1a1a1a;
+            padding-top: 80px; /* Lowered banner */
+            background-color: #000;
         }
         nav {
-            background-color: #1a1a1a;
-            padding: 10px 0;
+            background-color: #000;
             text-align: center;
+            padding: 10px 0;
         }
         nav a {
             color: #fff;
@@ -37,45 +37,53 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            padding: 20px;
             gap: 20px;
-            background-color: #000;
+            padding: 20px;
         }
         .project-card {
-            width: 250px;
-            text-align: #000;
-            background-color: 1f1f1f;
+            width: 200px;
+            text-align: center;
+            background-color: #1f1f1f;
             padding: 10px;
             border-radius: 5px;
         }
         .project-card img {
             width: 100%;
             height: auto;
-            border-radius: 5px;
+        }
+        .project-card a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .project-card a:hover {
+            color: #ccc;
         }
         .social {
-            text-align: #000;
-            color: #fff;
-            padding: 20px;
             text-align: center;
+            padding: 20px;
         }
         .social img {
             width: 30px;
             margin: 0 10px;
         }
+        .social a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .social a:hover {
+            color: #ccc;
+        }
         footer {
-            background-color: #1a1a1a;
+            background-color: #000;
             color: #fff;
             padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
             margin-top: auto;
         }
         .footer-left {
-            text-align: #000;
-            flex-align: left;
+            text-align: left;
             flex: 1;
         }
         .footer-left a {
@@ -100,6 +108,7 @@
 </head>
 <body>
     <header>
+        <img src="img/logo-niryx.png" alt="NIRYX logo" class="logo-top">
         <h1>Welcome to NIRYX</h1>
         <p>Argentina-based game developer who creates original worlds.</p>
     </header>
@@ -119,7 +128,7 @@
         </div>
         <div class="project-card">
             <img src="img/logo-nanase.png" alt="Nanase-San Can't Be Honest">
-            <h3>Nanase-San</h3>
+            <h3>Nanase-San Can't Be Honest</h3>
             <p>A mysterious girl who doesn't talk to anyone, Except you?</p>
             <a href="#">see game</a>
         </div>
@@ -133,13 +142,14 @@
 
     <section class="social">
         <h3>X</h3>
-        <p>@NIRYX Posts (3 last posts total)</p>
+        <p><a href="https://x.com/NiryxWorks" target="_blank">@NiryxWorks</a> Posts (3 last posts total)</p>
         <p>Links to NIRYX accounts</p>
         <h3>Follow us on</h3>
-        <a href="#"><img src="img/twitter.png" alt="Twitter"></a>
-        <a href="#"><img src="img/facebook.png" alt="Facebook"></a>
-        <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
+        <a href="https://www.youtube.com/@NiryxWorks" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
+        <a href="https://x.com/NiryxWorks" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968958.png" alt="X"></a>
+        <a href="https://www.instagram.com/niryxworks" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"></a>
         <p>Links to the NIRYX accounts</p>
+        <p>Icons provided by <a href="https://www.flaticon.com" target="_blank">Flaticon</a></p>
     </section>
 
     <footer>
@@ -153,7 +163,7 @@
             <p>Powered by Cognospheris 2025.</p>
         </div>
         <div class="footer-right">
-            <img src="img/logo.png" alt="NIRYX Logo">
+            <img src="img/logo-niryx.png" alt="NIRYX Logo">
         </div>
     </footer>
 </body>
