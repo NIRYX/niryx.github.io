@@ -9,19 +9,26 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000;
+            background-color: #1a1a1a; /* Slightly lighter background */
             color: #fff;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
+        .logo-container {
+            padding: 20px;
+            text-align: left;
+        }
+        .logo-container img {
+            width: 100px; /* Adjustable size for NIRYX logo */
+        }
         header {
             text-align: center;
             padding-top: 80px; /* Lowered banner */
-            background-color: #000;
+            background-color: #1a1a1a;
         }
         nav {
-            background-color: #000;
+            background-color: #1a1a1a;
             text-align: center;
             padding: 10px 0;
         }
@@ -43,7 +50,7 @@
         .project-card {
             width: 200px;
             text-align: center;
-            background-color: #1f1f1f;
+            background-color: #2f2f2f; /* Adjusted to contrast with lighter background */
             padding: 10px;
             border-radius: 5px;
         }
@@ -74,7 +81,7 @@
             color: #ccc;
         }
         footer {
-            background-color: #000;
+            background-color: #1a1a1a;
             color: #fff;
             padding: 20px;
             display: flex;
@@ -107,6 +114,9 @@
     </style>
 </head>
 <body>
+    <div class="logo-container">
+        <img src="img/logo-niryx.png" alt="NIRYX Logo">
+    </div>
     <header>
         <h1>Welcome to NIRYX</h1>
         <p>Argentina-based game developer who creates original worlds.</p>
@@ -126,13 +136,13 @@
             <a href="#">see game</a>
         </div>
         <div class="project-card">
-            <img src="img/logo-nan-san.png" alt="Nanase-San Can't Be Honest">
+            <img src="img/logo-nanase.png" alt="Nanase-San Can't Be Honest">
             <h3>Nanase-San Can't Be Honest</h3>
             <p>A mysterious girl who doesn't talk to anyone, Except you?</p>
             <a href="#">see game</a>
         </div>
         <div class="project-card">
-            <img src="img/logo_love.png" alt="Love and Literature">
+            <img src="img/logo-secret.png" alt="Love and Literature">
             <h3>Love and Literature</h3>
             <p>NIRYX has not given any information yet.</p>
             <a href="#">see game</a>
@@ -148,7 +158,6 @@
         <a href="https://x.com/NiryxWorks" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968958.png" alt="X"></a>
         <a href="https://www.instagram.com/niryxworks" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"></a>
         <p>Links to the NIRYX accounts</p>
-        <p>Icons provided by <a href="https://www.flaticon.com" target="_blank">Flaticon</a></p>
     </section>
 
     <footer>
