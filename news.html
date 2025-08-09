@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Niryx Studio - News</title>
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://platform.twitter.com;">
+  <meta name="twitter:widgets:csp" content="on">
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -60,18 +62,21 @@
       padding: 40px;
       text-align: center;
     }
+    .news-item {
+      background-color: #f5f5f5;
+      padding: 20px;
+      margin: 20px auto;
+      border-left: 4px solid #2e5aff;
+      text-align: left;
+      max-width: 600px;
+    }
+    .news-item p {
+      margin: 5px 0;
+    }
     .twitter-timeline {
       max-width: 600px;
       margin: 0 auto;
-    }
-    .fallback {
-      display: none;
-      color: #2e5aff;
-      max-width: 600px;
-      margin: 20px auto;
-    }
-    .twitter-timeline:empty + .fallback {
-      display: block;
+      display: none; /* Escondido temporalmente por 429; descomenta cuando se resuelva */
     }
     footer {
       text-align: center;
@@ -123,9 +128,19 @@
 
   <div class="news-section">
     <h2 class="blue-text">Noticias</h2>
+    <!-- Widget dinámico escondido temporalmente -->
     <a class="twitter-timeline" data-height="400" href="https://twitter.com/NiryxStudio?ref_src=twsrc%5Etfw">Tweets by @NiryxStudio</a>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <div class="fallback">El feed de noticias está temporalmente indisponible. Por favor, revisa más tarde o sigue a @NiryxStudio para las últimas actualizaciones. Si el problema persiste, verifica la consola (F12) para errores.</div>
+
+    <!-- Display estático del tweet reciente -->
+    <div class="news-item">
+      <p><strong>Hi everyone, I'm currently working on some changes to the Niryx Studio website. You can visit it to see how it looks right now: <a href="http://niryx.github.io">niryx.github.io</a></strong></p>
+      <p>I'm currently working on two projects, Nekophoria and Doki Doki Overdose.</p>
+      <p><em>Publicado el 09/08/2025</em></p>
+    </div>
+
+    <!-- Enlace al perfil para ver más -->
+    <p style="text-align: center;"><a href="https://twitter.com/NiryxStudio" class="blue-text">Ver más noticias en @NiryxStudio</a></p>
   </div>
 
   <footer>
