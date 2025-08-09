@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Niryx Studio - Games</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #FFFFFF;
+      color: #000000;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 2px solid #2e5aff;
+    }
+    header img {
+      max-width: 100px;
+      margin-right: 20px;
+    }
+    .nav-menu {
+      display: flex;
+    }
+    .nav-menu a {
+      color: #2e5aff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .nav-menu a:hover {
+      color: #1e3aff;
+      text-decoration: underline;
+    }
+    .hamburger {
+      display: none;
+      cursor: pointer;
+    }
+    .hamburger .bar {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: #2e5aff;
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+    .nav-menu.active, .hamburger.active .bar:nth-child(2) {
+      display: none;
+    }
+    .hamburger.active .bar:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active .bar:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+    .game-section {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 40px;
+      justify-content: center;
+    }
+    .game-banner {
+      width: 300px;
+      height: 200px;
+      background-color: #2e5aff;
+      margin-right: 20px;
+    }
+    .game-info {
+      max-width: 400px;
+      text-align: left;
+    }
+    .game-info h2 {
+      color: #2e5aff;
+      font-size: 2em;
+      margin: 0;
+    }
+    .game-info .subtext {
+      color: #555;
+      font-size: 0.9em;
+      margin: 5px 0;
+    }
+    .game-info p {
+      font-size: 1em;
+      line-height: 1.5;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      border-top: 1px solid #2e5aff;
+    }
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #FFFFFF;
+        padding: 10px;
+        border: 1px solid #2e5aff;
+      }
+      .nav-menu.active {
+        display: flex;
+      }
+      .nav-menu a {
+        margin: 10px 0;
+      }
+      .game-section {
+        flex-direction: column;
+        align-items: center;
+      }
+      .game-banner {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <img src="img/logo.png" alt="Niryx Studio Logo" />
+    <nav>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <div class="nav-menu">
+        <a href="index.html">HOME</a> |
+        <a href="games.html">GAMES</a> |
+        <a href="#contact">CONTACT</a> |
+        <a href="#about">ABOUT US</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="game-section">
+    <div class="game-banner"></div>
+    <div class="game-info">
+      <h2>Nekophoria</h2>
+      <p class="subtext">Fecha de anuncio: TBD</p>
+      <p class="subtext">Fecha de lanzamiento: TBD</p>
+      <p class="subtext">Plataformas: TBD</p>
+      <p>Niryx Studio aún no ha revelado información.</p>
+    </div>
+  </div>
+
+  <div class="game-section">
+    <div class="game-banner"></div>
+    <div class="game-info">
+      <h2>Doki-Doki Overdose</h2>
+      <p class="subtext">Fecha de anuncio: TBD</p>
+      <p class="subtext">Fecha de lanzamiento: TBD</p>
+      <p class="subtext">Plataformas: TBD</p>
+      <p>Niryx Studio aún no ha revelado información.</p>
+    </div>
+  </div>
+
+  <div class="game-section">
+    <div class="game-banner"></div>
+    <div class="game-info">
+      <h2>Proyecto 3</h2>
+      <p class="subtext">Fecha de anuncio: TBD</p>
+      <p class="subtext">Fecha de lanzamiento: TBD</p>
+      <p class="subtext">Plataformas: TBD</p>
+      <p>Niryx Studio aún no ha revelado información.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p class="blue-text">© 2025 Niryx Studio</p>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
