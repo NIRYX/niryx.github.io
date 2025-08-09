@@ -20,7 +20,7 @@
       border-bottom: 2px solid #1E90FF;
     }
     header img {
-      max-width: 150px;
+      max-width: 100px; /* Reducido de 150px a 100px para que no ocupe tanto */
       margin-right: 20px;
     }
     .nav-menu {
@@ -56,6 +56,18 @@
     .hamburger.active .bar:nth-child(3) {
       transform: rotate(-45deg) translate(5px, -5px);
     }
+    section {
+      padding: 40px;
+      text-align: center; /* Centrado del texto */
+    }
+    .blue-text {
+      color: #1E90FF;
+    }
+    footer {
+      text-align: center; /* Centrado del footer */
+      padding: 10px;
+      border-top: 1px solid #1E90FF;
+    }
     @media (max-width: 768px) {
       .hamburger {
         display: block;
@@ -82,7 +94,7 @@
 </head>
 <body>
   <header>
-    <img src="img/logo.png" alt="Niryx Studio Logo" />
+    <img src="img/logo.png" alt="Niryx Studio Logo" /> <!-- Ruta actualizada a la carpeta img -->
     <nav>
       <div class="hamburger">
         <span class="bar"></span>
