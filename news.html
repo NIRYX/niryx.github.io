@@ -27,7 +27,16 @@
     </nav>
   </header>
 
-  <div class="news-section" id="news-feed"></div>
+  <div class="news-section">
+    <!-- Embed del tweet que ya funciona -->
+    <div class="tweet-item">
+      <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Hi everyone, I&#39;m currently working on some changes to the Niryx Studio website. You can visit it to see how it looks right now:<br>[<a href="https://t.co/kwI5Lwoqtw">https://t.co/kwI5Lwoqtw</a>]<br><br>I&#39;m currently working on two projects, Nekophoria and Doki Doki Overdose.</p>&mdash; Niryx Studio (@NiryxStudio) <a href="https://twitter.com/NiryxStudio/status/1954302037031788556?ref_src=twsrc%5Etfw">August 9, 2025</a></blockquote>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+
+    <!-- Sección para API (desactivada por defecto, activa si configuras un proxy mejor) -->
+    <div id="api-feed" style="display: none;"></div>
+  </div>
   <div class="fallback">El feed de noticias está temporalmente indisponible. Por favor, revisa más tarde o sigue a @NiryxStudio para las últimas actualizaciones.</div>
 
   <footer>
@@ -35,17 +44,16 @@
   </footer>
 
   <script>
-    // Reemplaza estos valores con tus claves de la API de X
-    const apiKey = '58NyYpgV7skIsZ7altBXNTQH9';
-    const apiSecret = 'af04cybUwM6tj0ylMHCeduE4c9JPsGgIFsZkIest5TepRDS7kW';
-    const accessToken = '1878307773189963776-Y7L9V5uFZiRYdOCzm2TAgfBrQLVtR5';
-    const accessTokenSecret = '5InOg82rGToLdsDsaCEClGgMX4JIfFBhg8N8nVrvNfn3R';
+    // Script de API (desactivado por ahora, usa solo si configuras un proxy válido)
+    const apiKey = 'TU_API_KEY'; // Reemplaza con tu clave
+    const apiSecret = 'TU_API_SECRET';
+    const accessToken = 'TU_ACCESS_TOKEN';
+    const accessTokenSecret = 'TU_ACCESS_TOKEN_SECRET';
 
-    // Configuración de la API
     const userId = '1878307773189963776'; // ID de @NiryxStudio
-    const apiUrl = `https://api.twitter.com/2/users/${userId}/tweets?max_results=4`;
+    const baseApiUrl = `https://api.twitter.com/2/users/${userId}/tweets?max_results=4`;
+    const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(baseApiUrl)}`; // Prueba con corsproxy.io
 
-    // Función para generar firma OAuth 1.0a
     async function fetchTweets() {
       const oauth = {
         oauth_consumer_key: apiKey,
@@ -60,7 +68,7 @@
         max_results: '4'
       }).toString();
 
-      const signatureBase = `GET&${encodeURIComponent(apiUrl)}&${encodeURIComponent(params)}`;
+      const signatureBase = `GET&${encodeURIComponent(baseApiUrl)}&${encodeURIComponent(params)}`;
       const signingKey = `${encodeURIComponent(apiSecret)}&${encodeURIComponent(accessTokenSecret)}`;
       const hash = CryptoJS.HmacSHA1(signatureBase, signingKey);
       const oauth_signature = CryptoJS.enc.Base64.stringify(hash);
@@ -72,7 +80,7 @@
         .join(', ')}`;
 
       try {
-        const response = await fetch(apiUrl, {
+        const response = await fetch(proxyUrl, {
           method: 'GET',
           headers: {
             Authorization: authHeader,
@@ -85,8 +93,9 @@
         }
 
         const data = await response.json();
-        const newsFeed = document.getElementById('news-feed');
-        newsFeed.innerHTML = ''; // Limpiar contenido previo
+        const apiFeed = document.getElementById('api-feed');
+        apiFeed.style.display = 'block'; // Mostrar sección de API
+        apiFeed.innerHTML = ''; // Limpiar contenido previo
 
         if (data.data && data.data.length > 0) {
           data.data.forEach(tweet => {
@@ -96,20 +105,20 @@
               <p>${tweet.text}</p>
               <p class="tweet-date">${new Date(tweet.created_at).toLocaleDateString('es-AR')}</p>
             `;
-            newsFeed.appendChild(tweetDiv);
+            apiFeed.appendChild(tweetDiv);
           });
         } else {
-          newsFeed.innerHTML = '<p>No hay tweets disponibles.</p>';
+          apiFeed.innerHTML = '<p>No hay tweets disponibles.</p>';
         }
       } catch (error) {
         console.error('Error fetching tweets:', error);
-        const newsFeed = document.getElementById('news-feed');
-        newsFeed.innerHTML = '<p>Error al cargar los tweets. Revisa la consola para más detalles.</p>';
+        const apiFeed = document.getElementById('api-feed');
+        apiFeed.innerHTML = '<p>Error al cargar los tweets. Revisa la consola para más detalles.</p>';
       }
     }
 
-    // Ejecutar la función al cargar la página
-    fetchTweets();
+    // Descomenta la siguiente línea para probar la API (requiere tokens válidos y proxy funcional)
+    // fetchTweets();
   </script>
 </body>
 </html>
