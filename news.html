@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Niryx Studio - News</title>
-  <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://platform.twitter.com https://api.twitter.com;">
-  <!-- Placeholder para favicon, lo añadiremos después -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="img/favicon.png" type="image/png"> <!-- Cambia la ruta si tu favicon es .ico u otro -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 </head>
 <body>
   <header>
@@ -35,18 +36,17 @@
 
   <script>
     // Reemplaza estos valores con tus claves de la API de X
-    const apiKey = 'TU_API_KEY';
-    const apiSecret = 'TU_API_SECRET';
-    const accessToken = 'TU_ACCESS_TOKEN';
-    const accessTokenSecret = 'TU_ACCESS_TOKEN_SECRET';
+    const apiKey = '58NyYpgV7skIsZ7altBXNTQH9';
+    const apiSecret = 'af04cybUwM6tj0ylMHCeduE4c9JPsGgIFsZkIest5TepRDS7kW';
+    const accessToken = '1878307773189963776-Y7L9V5uFZiRYdOCzm2TAgfBrQLVtR5';
+    const accessTokenSecret = '5InOg82rGToLdsDsaCEClGgMX4JIfFBhg8N8nVrvNfn3R';
 
     // Configuración de la API
     const userId = '1878307773189963776'; // ID de @NiryxStudio
     const apiUrl = `https://api.twitter.com/2/users/${userId}/tweets?max_results=4`;
 
-    // Función para autenticación OAuth 1.0a
+    // Función para generar firma OAuth 1.0a
     async function fetchTweets() {
-      const token = btoa(`${apiKey}:${apiSecret}`);
       const oauth = {
         oauth_consumer_key: apiKey,
         oauth_token: accessToken,
@@ -62,7 +62,8 @@
 
       const signatureBase = `GET&${encodeURIComponent(apiUrl)}&${encodeURIComponent(params)}`;
       const signingKey = `${encodeURIComponent(apiSecret)}&${encodeURIComponent(accessTokenSecret)}`;
-      const oauth_signature = btoa(CryptoJS.HmacSHA1(signatureBase, signingKey).toString(CryptoJS.enc.Base64));
+      const hash = CryptoJS.HmacSHA1(signatureBase, signingKey);
+      const oauth_signature = CryptoJS.enc.Base64.stringify(hash);
 
       oauth.oauth_signature = oauth_signature;
 
@@ -88,35 +89,27 @@
         newsFeed.innerHTML = ''; // Limpiar contenido previo
 
         if (data.data && data.data.length > 0) {
-          data.data.slice(0, 4).forEach(tweet => {
-            const tweetItem = document.createElement('div');
-            tweetItem.className = 'tweet-item';
-            tweetItem.innerHTML = `
+          data.data.forEach(tweet => {
+            const tweetDiv = document.createElement('div');
+            tweetDiv.className = 'tweet-item';
+            tweetDiv.innerHTML = `
               <p>${tweet.text}</p>
-              <p class="tweet-date">${new Date(tweet.created_at).toLocaleDateString('es-ES')}</p>
+              <p class="tweet-date">${new Date(tweet.created_at).toLocaleDateString('es-AR')}</p>
             `;
-            newsFeed.appendChild(tweetItem);
+            newsFeed.appendChild(tweetDiv);
           });
         } else {
           newsFeed.innerHTML = '<p>No hay tweets disponibles.</p>';
         }
       } catch (error) {
         console.error('Error fetching tweets:', error);
-        document.getElementById('news-feed').innerHTML = '<p>Error al cargar los tweets. Revisa la consola.</p>';
+        const newsFeed = document.getElementById('news-feed');
+        newsFeed.innerHTML = '<p>Error al cargar los tweets. Revisa la consola para más detalles.</p>';
       }
     }
 
-    // Llamar a la función al cargar la página
-    document.addEventListener('DOMContentLoaded', fetchTweets);
-
-    // Hamburguer menu
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navMenu.classList.toggle('active');
-    });
+    // Ejecutar la función al cargar la página
+    fetchTweets();
   </script>
 </body>
 </html>
