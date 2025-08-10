@@ -102,10 +102,6 @@ footer {
   border-top: 1px solid #2e5aff;
 }
 
-.blue-text {
-  color: #2e5aff;
-}
-
 @media (max-width: 768px) {
   .hamburger {
     display: block;
