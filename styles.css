@@ -60,9 +60,55 @@ header img {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-.news-section {
+.contact-section {
   padding: 40px;
   text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #2e5aff;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #2e5aff;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.submit-btn {
+  background-color: #2e5aff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background-color: #1e3aff;
+}
+
+.form-message {
+  margin-top: 10px;
+  font-weight: bold;
 }
 
 .tweet-item {
@@ -92,7 +138,8 @@ header img {
   margin: 20px auto;
 }
 
-.news-section:empty + .fallback {
+.news-section:empty + .fallback,
+.contact-section:empty + .fallback {
   display: block;
 }
 
