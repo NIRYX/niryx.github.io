@@ -6,7 +6,6 @@
   <title>Niryx Studio - News</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="img/favicon.png" type="image/png"> <!-- Cambia la ruta si tu favicon es .ico u otro -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 </head>
 <body>
   <header>
@@ -28,97 +27,21 @@
   </header>
 
   <div class="news-section">
-    <!-- Embed del tweet que ya funciona -->
+    <!-- Embed del tweet que funciona -->
     <div class="tweet-item">
       <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Hi everyone, I&#39;m currently working on some changes to the Niryx Studio website. You can visit it to see how it looks right now:<br>[<a href="https://t.co/kwI5Lwoqtw">https://t.co/kwI5Lwoqtw</a>]<br><br>I&#39;m currently working on two projects, Nekophoria and Doki Doki Overdose.</p>&mdash; Niryx Studio (@NiryxStudio) <a href="https://twitter.com/NiryxStudio/status/1954302037031788556?ref_src=twsrc%5Etfw">August 9, 2025</a></blockquote>
       <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
 
-    <!-- Sección para API (desactivada por defecto, activa si configuras un proxy mejor) -->
-    <div id="api-feed" style="display: none;"></div>
+    <!-- Placeholder para feed dinámico (desactivado hasta que configuremos un backend) -->
+    <div id="api-feed" class="tweet-item" style="display: none;">
+      <p>Feed dinámico en desarrollo. Pronto mostraremos los últimos tweets automáticamente.</p>
+    </div>
   </div>
   <div class="fallback">El feed de noticias está temporalmente indisponible. Por favor, revisa más tarde o sigue a @NiryxStudio para las últimas actualizaciones.</div>
 
   <footer>
     <p class="blue-text">© 2025 Niryx Studio</p>
   </footer>
-
-  <script>
-    // Script de API (desactivado por ahora, usa solo si configuras un proxy válido)
-    const apiKey = 'TU_API_KEY'; // Reemplaza con tu clave
-    const apiSecret = 'TU_API_SECRET';
-    const accessToken = 'TU_ACCESS_TOKEN';
-    const accessTokenSecret = 'TU_ACCESS_TOKEN_SECRET';
-
-    const userId = '1878307773189963776'; // ID de @NiryxStudio
-    const baseApiUrl = `https://api.twitter.com/2/users/${userId}/tweets?max_results=4`;
-    const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(baseApiUrl)}`; // Prueba con corsproxy.io
-
-    async function fetchTweets() {
-      const oauth = {
-        oauth_consumer_key: apiKey,
-        oauth_token: accessToken,
-        oauth_signature_method: 'HMAC-SHA1',
-        oauth_timestamp: Math.floor(Date.now() / 1000),
-        oauth_nonce: Math.random().toString(36).substring(2),
-        oauth_version: '1.0'
-      };
-
-      const params = new URLSearchParams({
-        max_results: '4'
-      }).toString();
-
-      const signatureBase = `GET&${encodeURIComponent(baseApiUrl)}&${encodeURIComponent(params)}`;
-      const signingKey = `${encodeURIComponent(apiSecret)}&${encodeURIComponent(accessTokenSecret)}`;
-      const hash = CryptoJS.HmacSHA1(signatureBase, signingKey);
-      const oauth_signature = CryptoJS.enc.Base64.stringify(hash);
-
-      oauth.oauth_signature = oauth_signature;
-
-      const authHeader = `OAuth ${Object.entries(oauth)
-        .map(([k, v]) => `${k}="${encodeURIComponent(v)}"`)
-        .join(', ')}`;
-
-      try {
-        const response = await fetch(proxyUrl, {
-          method: 'GET',
-          headers: {
-            Authorization: authHeader,
-            'Content-Type': 'application/json'
-          }
-        });
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        const apiFeed = document.getElementById('api-feed');
-        apiFeed.style.display = 'block'; // Mostrar sección de API
-        apiFeed.innerHTML = ''; // Limpiar contenido previo
-
-        if (data.data && data.data.length > 0) {
-          data.data.forEach(tweet => {
-            const tweetDiv = document.createElement('div');
-            tweetDiv.className = 'tweet-item';
-            tweetDiv.innerHTML = `
-              <p>${tweet.text}</p>
-              <p class="tweet-date">${new Date(tweet.created_at).toLocaleDateString('es-AR')}</p>
-            `;
-            apiFeed.appendChild(tweetDiv);
-          });
-        } else {
-          apiFeed.innerHTML = '<p>No hay tweets disponibles.</p>';
-        }
-      } catch (error) {
-        console.error('Error fetching tweets:', error);
-        const apiFeed = document.getElementById('api-feed');
-        apiFeed.innerHTML = '<p>Error al cargar los tweets. Revisa la consola para más detalles.</p>';
-      }
-    }
-
-    // Descomenta la siguiente línea para probar la API (requiere tokens válidos y proxy funcional)
-    // fetchTweets();
-  </script>
 </body>
 </html>
