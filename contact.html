@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Niryx Studio - Contacto</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="img/favicon.png" type="image/png"> <!-- Cambia la ruta si tu favicon es .ico u otro -->
+</head>
+<body>
+  <header>
+    <img src="img/logo.png" alt="Niryx Studio Logo" />
+    <nav>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <div class="nav-menu">
+        <a href="index.html">HOME</a> |
+        <a href="games.html">GAMES</a> |
+        <a href="news.html">NEWS</a> |
+        <a href="contact.html">CONTACT</a> |
+        <a href="#about">ABOUT US</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="contact-section">
+    <h2 class="blue-text">Contacto</h2>
+    <form id="contact-form" class="contact-form">
+      <div class="form-group">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Mensaje:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Enviar</button>
+    </form>
+    <div id="form-message" class="form-message"></div>
+  </div>
+
+  <footer>
+    <p class="blue-text">© 2025 Niryx Studio</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const messageDiv = document.getElementById('form-message');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      // Simulación de envío (en un entorno real, aquí iría una solicitud a un backend)
+      if (name && email && message) {
+        messageDiv.textContent = '¡Mensaje enviado con éxito! Te contactaremos pronto.';
+        messageDiv.style.color = '#2e5aff';
+        form.reset();
+      } else {
+        messageDiv.textContent = 'Por favor, completa todos los campos.';
+        messageDiv.style.color = '#ff3333';
+      }
+    });
+  </script>
+</body>
+</html>
