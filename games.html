@@ -4,126 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link rel="icon" href="img/favicon.png" type="image/png"> <!-- Cambia la ruta si tu favicon es .ico u otro -->
   <title>Niryx Studio - Games</title>
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #FFFFFF;
-      color: #000000;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      border-bottom: 2px solid #2e5aff;
-    }
-    header img {
-      max-width: 100px;
-      margin-right: 20px;
-    }
-    .nav-menu {
-      display: flex;
-    }
-    .nav-menu a {
-      color: #2e5aff;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    .nav-menu a:hover {
-      color: #1e3aff;
-      text-decoration: underline;
-    }
-    .hamburger {
-      display: none;
-      cursor: pointer;
-    }
-    .hamburger .bar {
-      display: block;
-      width: 25px;
-      height: 3px;
-      background-color: #2e5aff;
-      margin: 5px 0;
-      transition: all 0.3s ease;
-    }
-    .nav-menu.active, .hamburger.active .bar:nth-child(2) {
-      display: none;
-    }
-    .hamburger.active .bar:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-    .hamburger.active .bar:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
-    .game-section {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 40px;
-      justify-content: center;
-    }
-    .game-banner {
-      width: 300px;
-      height: 400px;
-      margin-right: 20px;
-      background-size: cover;
-      background-position: center;
-    }
-    .game-info {
-      max-width: 400px;
-      text-align: left;
-    }
-    .game-info h2 {
-      color: #2e5aff;
-      font-size: 2em;
-      margin: 0;
-    }
-    .game-info .subtext {
-      color: #555;
-      font-size: 0.9em;
-      margin: 5px 0;
-    }
-    .game-info p {
-      font-size: 1em;
-      line-height: 1.5;
-    }
-    footer {
-      text-align: center;
-      padding: 10px;
-      border-top: 1px solid #2e5aff;
-    }
-    @media (max-width: 768px) {
-      .hamburger {
-        display: block;
-      }
-      .nav-menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        background-color: #FFFFFF;
-        padding: 10px;
-        border: 1px solid #2e5aff;
-      }
-      .nav-menu.active {
-        display: flex;
-      }
-      .nav-menu a {
-        margin: 10px 0;
-      }
-      .game-section {
-        flex-direction: column;
-        align-items: center;
-      }
-      .game-banner {
-        margin-right: 0;
-        margin-bottom: 20px;
-      }
-    }
-  </style>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -146,12 +28,13 @@
   </header>
 
   <div class="game-section">
-    <div class="game-banner" style="background-image: url('img/nekophoria-banner.png');"></div>
+    <div class="game-banner" style="background-image: url('img/nekophoria-banner.png');"></div> <!-- Ajusta la imagen si es diferente -->
     <div class="game-info">
-      <h2>Nekomelt</h2>
+      <h2>Nekomelt - Cat's Ice Cream Paradise</h2>
       <p class="subtext">Announcement date: 27/9/2024</p>
       <p class="subtext">Release date: TBA</p>
-      <p>An adorable and heartwarming visual novel where you'll meet three little neko girls and experience their childhood, adolescence, and young adulthood with them. A story of bonds, dreams, and scars in a world that isn't always kind.</p>
+      <p>In Nekomelt, you encounter three abandoned nekos, Kuramiru, Kurema, and Bomi. You decide to take them in and become their guardian while you run your ice cream shop. Can you melt their hearts? ¡Explore their world now!</p>
+      <a href="https://niryx.github.io/nekomelt.github.io/" class="game-btn">Visitar Nekomelt</a>
     </div>
   </div>
 
