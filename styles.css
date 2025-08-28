@@ -2,9 +2,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  color: #ff0000; /* Texto principal en rojo */
+  color: #ff0000;
   overflow-x: hidden;
-  background: #fff; /* Fondo blanco */
+  background: #fff;
 }
 
 .full-screen-bg {
@@ -28,7 +28,7 @@ body {
   top: 100vh;
   padding: 50px 20px;
   text-align: center;
-  background: #fff; /* Fondo blanco para el contenido */
+  background: #fff;
 }
 
 .animated-header {
@@ -40,8 +40,8 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 15px 20px;
-  background: #ff0000; /* Banner rojo */
-  border: 2px solid #ff0000; /* Borde rojo */
+  background: #ff0000;
+  border: 2px solid #ff0000;
   z-index: 1001;
   transition: top 1s ease;
   box-sizing: border-box;
@@ -63,7 +63,7 @@ body {
 }
 
 .nav a {
-  color: #fff; /* Texto blanco para contraste en el banner rojo */
+  color: #fff;
   text-decoration: none;
   font-size: 1.2em;
   white-space: nowrap;
@@ -78,7 +78,7 @@ body {
   height: 4px;
   bottom: -5px;
   left: 0;
-  background-color: #fff; /* Línea blanca al hover */
+  background-color: #fff;
   transition: width 0.3s ease;
 }
 
@@ -88,7 +88,7 @@ body {
 
 .nav a:hover {
   transform: scale(1.1);
-  color: #ffeeee; /* Blanco suave al hover */
+  color: #ffeeee;
 }
 
 @media (max-width: 768px) {
@@ -117,7 +117,7 @@ body {
 .projects-section h2 {
   font-size: 2em;
   margin-bottom: 20px;
-  color: #ff0000; /* Título en rojo */
+  color: #ff0000;
 }
 
 .game-list {
@@ -135,7 +135,7 @@ body {
   max-width: 300px;
   max-height: 350px;
   padding: 15px;
-  background: #fff; /* Fondo blanco para los items */
+  background: #fff;
   border-radius: 5px;
   text-align: left;
   display: flex;
@@ -143,12 +143,12 @@ body {
   justify-content: space-between;
   gap: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 2px solid #ff0000; /* Borde rojo */
+  border: 2px solid #ff0000;
 }
 
 .game-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2); /* Sombra roja al hover */
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
 }
 
 .game-item:nth-child(odd) {
@@ -176,14 +176,14 @@ body {
   margin: 0;
   font-size: 1.2em;
   align-self: flex-start;
-  color: #ff0000; /* Título en rojo */
+  color: #ff0000;
 }
 
 .game-item p {
   margin: 5px 0 0;
   font-size: 0.9em;
   align-self: flex-start;
-  color: #ff0000; /* Fecha en rojo */
+  color: #ff0000;
 }
 
 @media (max-width: 768px) {
@@ -214,15 +214,15 @@ body {
 .about-section {
   margin-top: 40px;
   padding: 20px;
-  background: #fff; /* Fondo blanco */
+  background: #fff; 
   border-radius: 5px;
-  border: 2px solid #ff0000; /* Borde rojo */
+  border: 2px solid #ff0000; 
 }
 
 .about-section h2 {
   font-size: 2em;
   margin-bottom: 15px;
-  color: #ff0000; /* Título en rojo */
+  color: #ff0000; 
 }
 
 .about-section p {
@@ -230,7 +230,7 @@ body {
   line-height: 1.5;
   max-width: 600px;
   margin: 0 auto;
-  color: #ff0000; /* Texto en rojo */
+  color: #ff0000; 
 }
 
 @media (max-width: 768px) {
