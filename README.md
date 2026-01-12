@@ -1,3 +1,3 @@
 - Niryx Initiative
 
-- It's only a matter of time before the NYX initiative begins, so stay tuned.
+- It's only a matter of time before the NIRYX initiative begins, so stay tuned.
